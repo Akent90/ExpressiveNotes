@@ -31,9 +31,11 @@ fs.readFile('./db/db.json', 'utf8', (err, data) => {
 });
 });
 
+// API route for adding a new note 
 app.post('/api/notes', (req, res) => {
     const newNote = req.body;
 
+    // Read notes, add the new note, write back to db.json
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
         if (err) {
             return res.status(500).send('Error reading notes');
@@ -46,6 +48,23 @@ app.post('/api/notes', (req, res) => {
                 return res.status(500).send('Error saving the note');
             }
             res.json(newNote);
+        });
+    });
+});
+
+app.delete('/api/notes/:id', (req, res) => {
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
+        if (err) {
+            return res.status(500).send('Error reading notes');
+        }
+        const notes = JSON.parse(data);
+        const filteredNotes = notes.filter(note => note.id !== req.params.id);
+
+        fs.writeFile('./db/db.json', JSON.stringify(filteredNotes), (err) => {
+            if (err) {
+                return res.status(500).send('Error deleting the note');
+            }
+            res.json({ message: 'Note deleted successfully' });
         });
     });
 });
