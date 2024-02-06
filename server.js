@@ -52,6 +52,7 @@ app.post('/api/notes', (req, res) => {
     });
 });
 
+// API route for deleting a note 
 app.delete('/api/notes/:id', (req, res) => {
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
         if (err) {
@@ -68,3 +69,6 @@ app.delete('/api/notes/:id', (req, res) => {
         });
     });
 });
+
+// Start sever on specified port
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
