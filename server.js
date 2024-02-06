@@ -21,6 +21,7 @@ app.get('/notes', (req, res) =>
 res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
+// API route for getting notes 
 app.get('/api/notes', (req, res) => {
 fs.readFile('./db/db.json', 'utf8', (err, data) => {
     if (err) {
@@ -28,4 +29,23 @@ fs.readFile('./db/db.json', 'utf8', (err, data) => {
     }
     res.json(JSON.parse(data));
 });
+});
+
+app.post('/api/notes', (req, res) => {
+    const newNote = req.body;
+
+    fs.readFile('./db/db.json', 'utf8', (err, data) => {
+        if (err) {
+            return res.status(500).send('Error reading notes');
+        }
+        const notes = JSON.parse(data);
+        notes.push(newNote);
+
+        fs.writeFile('./db/db.json', JSON.stringify(notes), (err) => {
+            if (err) {
+                return res.status(500).send('Error saving the note');
+            }
+            res.json(newNote);
+        });
+    });
 });
