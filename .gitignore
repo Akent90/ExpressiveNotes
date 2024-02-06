@@ -1,0 +1,23 @@
+# Dependency directories
+node_modules/
+
+# Environment configuration files
+.env
+
+# Log files
+*.log
+
+# OS generated files
+.DS_Store
+
+# Optional npm cache & logs
+.npm
+npm-debug.log*
+
+# Optional eslint cache
+.eslintcache
+
+# Optional IDE generated files
+.idea/
+.vscode/
+*.swp
