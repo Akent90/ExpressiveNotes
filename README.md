@@ -18,7 +18,9 @@ ExpressiveNotes is an note taker app that can be used to write and save notes. T
 
 To run this application, you'll need [Node.js](https://nodejs.org/) installed on your computer.
 
-Here's a link to the deployed application: https://expressivenotes-0b0c0b2fac19.herokuapp.com/notes
+[Check out the deployed Expressive Notes Application here](https://expressivenotes-0b0c0b2fac19.herokuapp.com/notes)
+
+Here's a screenshot of the deployed app ![Expressive Notes Application Screenshot](public/assets/images/DeployedApp.png)
 
 ## Usage
 
