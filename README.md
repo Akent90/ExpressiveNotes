@@ -40,11 +40,7 @@ Closing the Application: If running locally, you can stop the server by pressing
 
 ## Contributing
 
-Pull requests, and code reviews are always welcome!
-
-## Tests
-
-N/A
+All are welcome to submit a pull request! Code reviews are always welcome as well.
 
 ## Questions
 
